@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import MonsterList from './Monsters/MonsterList.jsx';
+import MonsterListItem from './Monsters/MonsterListItem.jsx';
+import Nav from './Nav.jsx'
 
 class Main extends Component {
 
@@ -27,13 +28,39 @@ class Main extends Component {
 
 
 
-        {/* <Nav/> */}
+        <Nav/>
 
         <div id="content-wrapper">
 
           {/* {JSON.stringify(this.props.monsterList)} */}
-          {React.cloneElement(this.props.children, this.props)}
-          
+          {/* {React.cloneElement(this.props.children, this.props)} */}
+
+          <div id="Monsters">
+            <ul id="nav-secondary" className="nav clearfix">
+              <li>Main.jsx</li>
+            </ul>
+
+            <div className="monsters-list">
+              <ul className="nav">
+                {this.props.monsterList.results.map((monster, index) =>
+                  <MonsterListItem {...this.props}
+                    key={index}
+                    index={index}
+                    monster={monster}
+                  />
+                )}
+              </ul>
+            </div>
+            <div className="monster-display">
+              {/* <MonsterDisplay setMonsterUrl={this.state.monsterUrl} /> */}
+            </div>
+
+
+
+          </div>
+
+
+
 
         </div>
       </div>

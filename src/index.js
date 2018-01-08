@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import ReactDOM from 'react-dom';
+import registerServiceWorker from './registerServiceWorker';
 
 import './App.css';
 
@@ -26,4 +26,8 @@ const router = (
   </Provider>
 )
 
-render(router, document.getElementById('root'));
+// render(router, document.getElementById('root'));
+
+ReactDOM.render(
+  router, document.getElementById('root'));
+registerServiceWorker();
