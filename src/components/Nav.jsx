@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import Spells from './Spells/Spells.jsx';
-import Monsters from './Monsters/Monsters.jsx';
 
 class Nav extends Component {
 
