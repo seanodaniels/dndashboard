@@ -1,23 +1,16 @@
-import { createStore, compse } from 'redux';
-import { syncHistoryWithStore} from 'react-router-redux';
-import { browserHistory } from 'react-router';
+import { createStore } from 'redux';
 
 // import root reducer
-import routerReducer from './reducers/index'
+import reducer from './reducers/index'
 
 // Import data
 import monsterList from './data/monsterList';
 
 // Create object for the default data
 const defaultState = {
-  monsterList, // es6 stuff
+  monsterList,
 };
 
-
-
-
-const store = createStore(routerReducer, defaultState);
-
-export const history = syncHistoryWithStore(browserHistory, store);
+const store = createStore(reducer, defaultState);
 
 export default store;

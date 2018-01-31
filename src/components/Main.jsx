@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import MonsterListItem from './Monsters/MonsterListItem.jsx';
 import Nav from './Nav.jsx'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/actionCreators';
 
 class Main extends Component {
 
@@ -37,7 +39,7 @@ class Main extends Component {
 
           <div id="Monsters">
             <ul id="nav-secondary" className="nav clearfix">
-              <li>Main.jsx</li>
+              <li>Main.jsx </li>
             </ul>
 
             <div className="monsters-list">
@@ -67,4 +69,17 @@ class Main extends Component {
     )
   }
 }
-export default Main;
+
+function mapStateToProps(state) {
+  return {
+    monsterList: state.monsterList,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
