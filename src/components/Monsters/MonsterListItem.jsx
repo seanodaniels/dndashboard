@@ -1,22 +1,48 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { setMonsterUrl } from "../../actions/index";
 
-class MonsterListItem extends Component {
+const mapStateToProps = state => {
+  return {
+    monsterList: state.monsterList,
+    chosenMonsterUrl: state.chosenMonsterUrl,
+  };
+};
 
+const mapDispatchToProps = dispatch => {
+  return {
+    setMonsterUrl: url => dispatch(setMonsterUrl(url)),
+  };
+};
+
+class MonsterList extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      monsterList: {},
-    }
-  }
+      thing: 'thing',
+    };
+  };
+
+  handlerChoose(url) {
+    // set chosenMonsterUrl via action
+    console.log(url);
+    this.props.setMonsterUrl(url);
+  };
 
   render() {
     return (
-      <div>
-        {/* {this.props.monsterList.results.map((monster, index) => <div key={index}>{monster.name}</div>)} */}
-        <li><a href={this.props.monster.url} target="_blank">{this.props.monster.name}</a></li>
-      </div>
+      <ul className="nav">
+        {this.props.monsterList.map((el, index) => (
+          <li className="list-group-item" key={index}>
+            <a onClick={(e) => (this.handlerChoose(el.url))}>{el.name}</a>
+          </li>
+        ))}
+      </ul>
     )
   }
 }
+
+const MonsterListItem = connect(mapStateToProps, mapDispatchToProps)(MonsterList);
+
 export default MonsterListItem;

@@ -11,7 +11,6 @@ class Nav extends Component {
     }
   }
 
-
   render() {
     return (
       <nav id="Nav" className="clearfix">
@@ -20,7 +19,6 @@ class Nav extends Component {
           <li><Link to="/monsters">Monsters</Link></li>
           <li><Link to="/spells">Spells</Link></li>
         </ul> */}
-
       </nav>
     )
   }
