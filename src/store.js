@@ -1,16 +1,6 @@
 import { createStore } from 'redux';
+import rootReducer from './reducers/index'
 
-// import root reducer
-import reducer from './reducers/index'
-
-// Import data
-import monsterList from './data/monsterList';
-
-// Create object for the default data
-const defaultState = {
-  monsterList,
-};
-
-const store = createStore(reducer, defaultState);
+const store = createStore(rootReducer);
 
 export default store;
