@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MonsterListItem from './Monsters/MonsterListItem.jsx';
+import MonsterList from './Monsters/MonsterList.jsx';
 import MonsterDisplay from './Monsters/MonsterDisplay.jsx';
 import Nav from './Nav.jsx'
 
@@ -40,9 +40,7 @@ class Main extends Component {
             </ul>
 
             <div className="monsters-list">
-              <ul className="nav">
-                <MonsterListItem />
-              </ul>
+                <MonsterList />
             </div>
             <div className="monster-display">
               <MonsterDisplay setMonsterUrl={this.state.monsterUrl} />

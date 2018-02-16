@@ -1,51 +1,10 @@
-import { ADD_ARTICLE } from '../constants/action-types';
-import { SET_MONSTER_URL } from '../constants/action-types';
-import monsterList from '../data/monsterList';
+import { combineReducers } from 'redux';
+import { monsters, monstersIsFetching, monstersFetchingError } from './monsters.jsx';
 
+export default combineReducers({
+  monsters, monstersIsFetching, monstersFetchingError
+});
 
-const initialState = {
-  articles: [
-    {
-      title: 'first article',
-      id: 1
-    },
-    {
-      title: 'second article',
-      id: 2
-    },
-  ],
-  monsterList: monsterList.results,
-  chosenMonsterUrl: 'http://www.dnd5eapi.co/api/monsters/23',
-}
-
-// const rootReducer = combineReducers({
-//   routing: routerReducer,
-//   monsterList,
-// });
-
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_ARTICLE:
-      return {
-        ...state,
-        // articles: state.articles.concat(action.payload),
-        articles: [
-          ...state.articles,
-          action.payload
-        ]
-      }
-      case SET_MONSTER_URL:
-        return {
-          ...state,
-          // articles: state.articles.concat(action.payload),
-          chosenMonsterUrl: action.payload,
-        }
-    default:
-      return state;
-  }
-}
-
-export default rootReducer;
 
 /*
  * API Calls
