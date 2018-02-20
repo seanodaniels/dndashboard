@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import { monsters, monstersIsFetching, monstersFetchingError } from './monsters.jsx';
+import {
+  monsters, monstersIsFetching, monstersFetchingError,
+  singleMonster, singleMonsterIsFetching, singleMonsterFetchingError,
+ } from './monsters.jsx';
 
 export default combineReducers({
-  monsters, monstersIsFetching, monstersFetchingError
+  monsters, monstersIsFetching, monstersFetchingError,
+  singleMonster, singleMonsterIsFetching, singleMonsterFetchingError,
 });
 
 

@@ -7,10 +7,8 @@ class Main extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
     }
-
   }
 
   completeItem = (url) => {
@@ -20,7 +18,6 @@ class Main extends Component {
   }
 
   render() {
-
     // DnDashboard
     return (
       <div id="DnDashboard">
