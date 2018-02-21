@@ -4,6 +4,31 @@
     display: table;
 }
 .test { padding: 10px; }
+
+a {
+  color: #0033dd;
+}
+
+a:link {
+  color: #0033dd;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #0033dd;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #0000ff;
+  text-decoration: none;
+}
+
 .App {
 }
 
@@ -32,12 +57,19 @@ ul.nav {
 
   ul.nav li {
     list-style: none;
-    margin: 0;
+    margin: 0.5em 0.2em;
     padding: 0;
   }
 
   ul.nav li a {
     cursor: pointer;
+    padding: 0.5em 0.2em;
+  }
+
+  .monsters-list ul.nav li a:hover {
+    background-color: #0033dd;
+    color: #fff;
+    text-decoration: none;
   }
 
 #Nav {
@@ -54,29 +86,6 @@ ul#nav-primary {
     margin: 0 1em 0 0;
   }
 
-  #nav-primary li a {
-    padding: 0.5em;
-  }
-
-  #nav-primary li a:link {
-    color: #000000;
-  }
-
-  #nav-primary li a:visited {
-    color: #000000;
-  }
-
-  #nav-primary li a:hover {
-    color: #000000;
-  }
-
-  #nav-primary li a:active {
-    color: #000000;
-  }
-
-  #nav-primary li a.active {
-    color: #333333;
-  }
 
 ul#nav-secondary {
   margin: 1em;
@@ -91,12 +100,12 @@ ul#nav-secondary {
 .monsters-list {
   border: 1px solid #000;
   float: left;
+  margin-right: 1%;
 }
 
 .monster-display {
-  border: 1px solid #dddddd;
   float: left;
-  max-width: 48%;
+  max-width: 47%;
 
 }
 .one-half {
@@ -146,3 +155,13 @@ h4 {
 .special-ability {
   margin: 0.5em 0;
 }
+
+.monster-table {
+  border-collapse: collapse;
+  border: 1px solid #333;
+}
+  .monster-table td {
+    border-collapse: collapse;
+    border: 1px solid #333;
+    padding: 0.3em;
+  }
