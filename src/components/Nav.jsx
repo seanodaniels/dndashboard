@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
 class Nav extends Component {
 
@@ -14,11 +15,11 @@ class Nav extends Component {
   render() {
     return (
       <nav id="Nav" className="clearfix">
-        {/* <ul id="nav-primary" className="nav clearfix">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/monsters">Monsters</Link></li>
-          <li><Link to="/spells">Spells</Link></li>
-        </ul> */}
+        <ul id="nav-primary" className="nav clearfix">
+          <li><NavLink to="/" activeClassName="active">Home</NavLink></li>
+          <li><NavLink to="/monsters" activeClassName="active">Monsters</NavLink></li>
+          <li><NavLink to="/spells" activeClassName="active">Spells</NavLink></li>
+        </ul>
       </nav>
     )
   }
