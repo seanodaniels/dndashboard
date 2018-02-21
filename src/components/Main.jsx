@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
-import MonsterList from './Monsters/MonsterList.jsx';
-import MonsterDisplay from './Monsters/MonsterDisplay.jsx';
-import Nav from './Nav.jsx'
+import React, {Component} from 'react';
+import Home from './Home.jsx';
+import MonsterMain from './Monsters/MonsterMain.jsx';
+import SpellsMain from './Spells/SpellsMain.jsx';
+import Nav from './Nav.jsx';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 class Main extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-    }
+    this.state = {}
   }
 
   completeItem = (url) => {
-    this.setState({
-      monsterUrl: url,
-    });
+    this.setState({monsterUrl: url});
   }
 
   render() {
     // DnDashboard
-    return (
+    return (<Router>
       <div id="DnDashboard">
         <header className="App-header">
           <h1>
@@ -31,23 +30,16 @@ class Main extends Component {
 
         <div id="content-wrapper">
 
-          <div id="Monsters">
-            <ul id="nav-secondary" className="nav clearfix">
-              <li>Secondary Nav Placeholder</li>
-            </ul>
-
-            <div className="monsters-list">
-                <MonsterList />
-            </div>
-            <div className="monster-display">
-              <MonsterDisplay setMonsterUrl={this.state.monsterUrl} />
-            </div>
-
-          </div>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/monsters" component={MonsterMain}/>
+            <Route path="/spells" component={SpellsMain}/>
+          </Switch>
+          {/* <MonsterMain /> */}
 
         </div>
       </div>
-    )
+    </Router>)
   }
 }
 

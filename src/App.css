@@ -58,6 +58,26 @@ ul#nav-primary {
     padding: 0.5em;
   }
 
+  #nav-primary li a:link {
+    color: #000000;
+  }
+
+  #nav-primary li a:visited {
+    color: #000000;
+  }
+
+  #nav-primary li a:hover {
+    color: #000000;
+  }
+
+  #nav-primary li a:active {
+    color: #000000;
+  }
+
+  #nav-primary li a.active {
+    color: #333333;
+  }
+
 ul#nav-secondary {
   margin: 1em;
 }
