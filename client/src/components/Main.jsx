@@ -3,13 +3,30 @@ import Home from './Home.jsx';
 import MonsterMain from './Monsters/MonsterMain.jsx';
 import SpellsMain from './Spells/SpellsMain.jsx';
 import Nav from './Nav.jsx';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class Main extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      response: ''
+    }
+  }
+
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+  }
+
+  callApi = async() => {
+    const response = await fetch('/api/hello');
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
   }
 
   completeItem = (url) => {
@@ -24,6 +41,7 @@ class Main extends Component {
           <h1>
             <span className="dnd-header">D&amp;D</span>ashboard</h1>
           <p>A Dungeons &amp; Dragons Online Tool</p>
+          <p>Status: {this.state.response}</p>
         </header>
 
         <Nav/>

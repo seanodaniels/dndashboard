@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class MonsterProp extends Component {
 
   constructor(props) {
@@ -39,7 +37,6 @@ class MonsterProp extends Component {
                 {this.props.name}</a>
             )
           }
-        break;
 
         case "tr":
           return (
@@ -48,7 +45,6 @@ class MonsterProp extends Component {
               <td className="value">{this.props.value}</td>
             </tr>
           )
-        break;
 
         default:
         return (
