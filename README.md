@@ -12,6 +12,8 @@ TO DO: See deployment for notes on how to deploy the project on a live system.
 
 A step by step series of examples that tell you have to get a development env running.
 
+Install what needs to be installed: Node, React, Redux, Mongoose, MongoDB.
+
 Clone the repository on your local machine.
 
 ```
@@ -23,6 +25,12 @@ Update all the things.
 ```
 cd ./dndashboard
 npm install
+```
+
+Run MongoDB. From the root directory:
+
+```
+mongod -dbpath ./data/db
 ```
 
 Run the Express server. From the root directory:
@@ -38,7 +46,6 @@ cd client
 npm start
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Built With
 
@@ -49,6 +56,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 To be implemented:
 * [MongoDB](https://www.mongodb.com/)
+* [Mongoose](http://mongoosejs.com/)
 
 ## Contributing
 

@@ -10,7 +10,7 @@ class SpellsMain extends Component {
   }
 
   componentDidMount() {
-    fetch('/users')
+    fetch('/users2')
       .then(res => res.json())
       .then(users => this.setState({ users }));
   }

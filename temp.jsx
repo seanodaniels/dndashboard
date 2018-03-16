@@ -1,0 +1,7 @@
+db.restaurants.insert(
+{
+  "address" : {
+    
+  }
+}
+)
