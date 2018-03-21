@@ -5,14 +5,15 @@ class SpellsMain extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      spell: []
     }
   }
 
   componentDidMount() {
-    fetch('/users2')
+    fetch('/spells')
       .then(res => res.json())
-      .then(users => this.setState({ users }));
+      .then(spell => this.setState({ spell }));
+
   }
 
   render() {
@@ -20,9 +21,12 @@ class SpellsMain extends Component {
     return (
       <div id="spells">
         <h2>Spells</h2>
-        <p>{this.state.users.map((user)  => (
-          <div key={user.id}>{user.username}</div>
-        ))}</p>
+
+        {this.state.spell.map((data)  => (
+          <div key={data._id}>{data.Title}</div>
+        ))}
+
+
       </div>
     )
   }

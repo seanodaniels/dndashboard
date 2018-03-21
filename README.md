@@ -36,7 +36,7 @@ mongod -dbpath ./data/db
 Run the Express server. From the root directory:
 
 ```
-PORT=3001 node bin/www
+node app.js -or- PORT=3001 node bin/www
 ```
 
 Run the React app. From the root directory:

@@ -14,20 +14,20 @@ class Main extends Component {
     }
   }
 
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
-
-  callApi = async() => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  }
+  // componentDidMount() {
+  //   this.callApi()
+  //     .then(res => this.setState({ response: res.express }))
+  //     .catch(err => console.log(err));
+  // }
+  //
+  // callApi = async() => {
+  //   const response = await fetch('/');
+  //   const body = await response.json();
+  //
+  //   if (response.status !== 200) throw Error(body.message);
+  //
+  //   return body;
+  // }
 
   completeItem = (url) => {
     this.setState({monsterUrl: url});
@@ -41,7 +41,7 @@ class Main extends Component {
           <h1>
             <span className="dnd-header">D&amp;D</span>ashboard</h1>
           <p>A Dungeons &amp; Dragons Online Tool</p>
-          <p>Status: {this.state.response}</p>
+          {/* <p>Status: {this.state.response}</p> */}
         </header>
 
         <Nav/>
