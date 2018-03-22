@@ -66,7 +66,7 @@ ul.nav {
     padding: 0.5em 0.2em;
   }
 
-  .monsters-list ul.nav li a:hover {
+  .data-list ul.nav li a:hover {
     background-color: #0033dd;
     color: #fff;
     text-decoration: none;
@@ -97,13 +97,13 @@ ul#nav-secondary {
   padding: 1em;
 }
 
-.monsters-list {
+.data-list {
   border: 1px solid #000;
   float: left;
   margin-right: 1%;
 }
 
-.monster-display {
+.data-display {
   float: left;
   max-width: 47%;
 

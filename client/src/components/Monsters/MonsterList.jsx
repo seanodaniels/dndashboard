@@ -20,13 +20,11 @@ const mapDispatchToProps = (dispatch) => {
 class MonsterList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      thing: 'thing',
-      monstersList: [],
-    };
   };
 
   componentDidMount() {
+    // Go get all the monsters from API, chunk 'em in state.monsters.
+    // Execution handled in the action.
     this.props.fetchData('http://www.dnd5eapi.co/api/monsters/');
   }
 

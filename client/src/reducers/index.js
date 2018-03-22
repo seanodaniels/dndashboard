@@ -4,9 +4,14 @@ import {
   singleMonster, singleMonsterIsFetching, singleMonsterFetchingError,
  } from './monsters.jsx';
 
+ import {
+   spells, spellsIsFetching, spellsFetchingError
+ } from './spells.jsx';
+
 export default combineReducers({
   monsters, monstersIsFetching, monstersFetchingError,
   singleMonster, singleMonsterIsFetching, singleMonsterFetchingError,
+  spells, spellsIsFetching, spellsFetchingError
 });
 
 

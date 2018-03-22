@@ -8,6 +8,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 TO DO: See deployment for notes on how to deploy the project on a live system.
 
+## Browser Requirements
+
+Running this in Chrome will throw a CORS error. I recommend installing the "Allow-Control-Allow-Origin" Chrome Extension: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en and enabling it for the following:
+
+1. http://127.0.0.1/*
+2. http://localhost/*
+
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running.
@@ -36,7 +43,7 @@ mongod -dbpath ./data/db
 Run the Express server. From the root directory:
 
 ```
-node app.js -or- PORT=3001 node bin/www
+npm start
 ```
 
 Run the React app. From the root directory:
@@ -53,9 +60,9 @@ npm start
 * [Redux](https://redux.js.org/)
 * [React Router Dom](https://github.com/reactjs/react-router-redux)
 * [Express](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
 
 To be implemented:
-* [MongoDB](https://www.mongodb.com/)
 * [Mongoose](http://mongoosejs.com/)
 
 ## Contributing

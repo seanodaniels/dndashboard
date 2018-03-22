@@ -19,14 +19,16 @@ class MonsterMain extends Component {
 
   render() {
     // DnDashboard
-    return (<div id="Monsters">
-      <div className="monsters-list">
-        <MonsterList/>
+    return (
+      <div id="Monsters">
+        <div className="data-list monsters-list">
+          <MonsterList/>
+        </div>
+        <div className="data-display monster-display">
+          <MonsterDisplay setMonsterUrl={this.state.monsterUrl}/>
+        </div>
       </div>
-      <div className="monster-display">
-        <MonsterDisplay setMonsterUrl={this.state.monsterUrl}/>
-      </div>
-    </div>)
+    )
   }
 }
 
