@@ -25,7 +25,7 @@ class SpellsMain extends Component {
           <SpellsList/>
         </div>
         <div className="data-display spell-display">
-          <SpellDisplay setSpellUrl={this.state.spellUrl}/>
+          <SpellDisplay setSpellId='hi'/>
         </div>
       </div>
     )

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { spellsFetchData } from "../../actions/index.js";
+import { spellsFetchData, currentSpell } from "../../actions/index.js";
 
 var _ = require('lodash');
 
@@ -8,13 +8,15 @@ const mapStateToProps = state => {
   return {
     spells: state.spells,
     spellsIsFetching: state.spellsIsFetching,
-    spellsFetchingError: state.spellsFetchingError
+    spellsFetchingError: state.spellsFetchingError,
+    updateSpell: state.updateSpell
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSpellsData: url => dispatch(spellsFetchData(url))
+    fetchSpellsData: url => dispatch(spellsFetchData(url)),
+    changeCurrentSpell: id => dispatch(currentSpell(id))
   };
 };
 
@@ -28,6 +30,10 @@ class SpellsList extends Component {
 
   componentDidMount() {
     this.props.fetchSpellsData("http://localhost:3001/api/spells");
+  }
+
+  handlerChooseSpell(id) {
+    this.props.changeCurrentSpell(id);
   }
 
   render() {
@@ -55,7 +61,7 @@ class SpellsList extends Component {
             )
             .map((spell, index) => (
             <li className="list-group-item" key={index}>
-              <a href="">{spell.Title}</a>
+              <a onClick={e => this.handlerChooseSpell(spell._id)}>{spell.Title}</a>
             </li>
             ))
           }

@@ -25,3 +25,12 @@ export const spells = (state = [], action) => {
       return state;
   }
 };
+
+export const currentSpell = (state = false, action) => {
+  switch (action.type) {
+    case "UPDATE_SPELL":
+      return action.currentSpell
+    default:
+      return state;
+  }
+};

@@ -5,13 +5,13 @@ import {
  } from './monsters.jsx';
 
  import {
-   spells, spellsIsFetching, spellsFetchingError
+   spells, spellsIsFetching, spellsFetchingError, currentSpell
  } from './spells.jsx';
 
 export default combineReducers({
   monsters, monstersIsFetching, monstersFetchingError,
   singleMonster, singleMonsterIsFetching, singleMonsterFetchingError,
-  spells, spellsIsFetching, spellsFetchingError
+  spells, spellsIsFetching, spellsFetchingError, currentSpell
 });
 
 

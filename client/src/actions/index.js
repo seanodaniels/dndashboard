@@ -7,6 +7,7 @@ export const SINGLE_MONSTER_FETCH_SUCCESS = "SINGLE_MONSTER_FETCH_SUCCESS";
 export const SPELLS_IS_FETCHING = "SPELLS_IS_FETCHING";
 export const SPELLS_FETCHING_ERROR = "SPELLS_FETCHING_ERROR";
 export const SPELLS_FETCH_SUCCESS = "SPELLS_FETCH_SUCCESS";
+export const UPDATE_SPELL = "UPDATE_SPELL";
 
 export function monstersIsFetching(bool) {
   return {
@@ -128,5 +129,12 @@ export function spellsFetchData(url) {
         dispatch(spellsFetchSuccess(spells));
       })
       .catch(() => dispatch(spellsFetchingError(true)));
+  };
+}
+
+export function currentSpell(id) {
+  return {
+    type: "UPDATE_SPELL",
+    currentSpell: id
   };
 }
