@@ -1,61 +1,71 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { spellsFetchData } from '../../actions/index.js';
+import { spellsFetchData } from "../../actions/index.js";
 
-const mapStateToProps = (state) => {
+var _ = require('lodash');
+
+const mapStateToProps = state => {
   return {
     spells: state.spells,
     spellsIsFetching: state.spellsIsFetching,
-    spellsFetchingError: state.spellsFetchingError,
+    spellsFetchingError: state.spellsFetchingError
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    fetchData: (url) => dispatch(spellsFetchData(url))
+    fetchSpellsData: url => dispatch(spellsFetchData(url))
   };
 };
 
-class MonsterList extends Component {
+class SpellsList extends Component {
   constructor(props) {
     super(props);
-  };
-
-  componentDidMount() {
-    this.props.fetchData('/spells');
+    this.state = {
+      query: false
+    }
   }
 
-  handlerChoose(url) {
-    // this.props.singleFetchData(url);
-  };
+  componentDidMount() {
+    this.props.fetchSpellsData("http://localhost:3001/api/spells");
+  }
 
   render() {
 
-        if (this.props.spellsFetchingError) {
-            return <p>Sorry! There was an error loading the items</p>;
-        }
-
-        if (this.props.spellsIsFetching) {
-            return <p>Loading…</p>;
-        }
-
-        return (
-
-            <ul className="nav">
-                {/* {this.props.spells.map((item) => (
-                    <li key={item.name}>
-                        {item.name}
-                    </li>
-                ))} */}
-                {this.props.spells.map((el, index) => (
-                  <li className="list-group-item" key={index}>
-                    <a onClick={(e) => (this.handlerChoose(el.url))}>{el.name}</a>
-                  </li>
-                ))}
-            </ul>
-        );
+    if (this.props.spellsFetchingError) {
+        return <p>Sorry! There was an error loading the items</p>;
     }
 
+    if (this.props.spellsIsFetching) {
+        return <p>Loading…</p>;
+    }
+
+    return (
+
+      <div>
+        <h2>Spells</h2>
+
+        <input className="list-filter" placeholder="search" value={this.state.query || ''} onChange={ (event) => { this.setState( { query: event.target.value})}} />
+        <ul className="nav">
+          {
+            this.props.spells
+            .filter(
+              (spell) => _.toLower(spell.Title)
+              .includes(_.toLower(this.state.query || ''))
+            )
+            .map((spell, index) => (
+            <li className="list-group-item" key={index}>
+              <a href="">{spell.Title}</a>
+            </li>
+            ))
+          }
+        </ul>
+
+      </div>
+
+    );
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MonsterList)
+// export default SpellsMain;
+export default connect(mapStateToProps, mapDispatchToProps)(SpellsList);
