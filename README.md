@@ -27,11 +27,15 @@ Clone the repository on your local machine.
 git clone https://www.github.com/seanodaniels/dndashboard
 ```
 
-Update all the things.
+Update all the things. From the root directory:
 
 ```
 cd ./dndashboard
 npm install
+
+cd ./client
+npm install
+cd ..
 ```
 
 Run MongoDB. From the root directory:
