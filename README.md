@@ -2,15 +2,17 @@
 
 A web-based toolset resource for use during D&D games, for players and GMs alike.
 
+A live demo of this app can be found at http://dndash.herokuapp.com/
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 TO DO: See deployment for notes on how to deploy the project on a live system.
 
-## Browser Requirements
+## Browser Requirements for a Local Build
 
-Running this in Chrome will throw a CORS error. I recommend installing the "Allow-Control-Allow-Origin" Chrome Extension: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en and enabling it for the following:
+For local installations only, running this app in Chrome will throw a CORS error. I recommend installing the "Allow-Control-Allow-Origin" Chrome Extension: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en and enabling it for the following:
 
 1. http://127.0.0.1/*
 2. http://localhost/*
@@ -61,8 +63,6 @@ npm start
 * [React Router Dom](https://github.com/reactjs/react-router-redux)
 * [Express](https://expressjs.com/)
 * [MongoDB](https://www.mongodb.com/)
-
-To be implemented:
 * [Mongoose](http://mongoosejs.com/)
 
 ## Contributing
@@ -72,10 +72,6 @@ Not yet. Let me finish this thing first.
 ## Authors
 
 * **Sean O'Daniels** - *Primary Author*
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
