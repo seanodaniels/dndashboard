@@ -29,7 +29,7 @@ class SpellsList extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchSpellsData("http://localhost:3001/api/spells");
+    this.props.fetchSpellsData("http://localhost:5000/api/spells");
   }
 
   handlerChooseSpell(id) {
