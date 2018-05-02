@@ -3,14 +3,12 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./app.js",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "start": "node ./app.js"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
-    "dotenv": "^5.0.1",
     "express": "~4.15.5",
     "jade": "~1.11.0",
     "mongoose": "^5.0.10",
@@ -20,8 +18,5 @@
   "devDependencies": {
     "concurrently": "^3.5.0",
     "nodemon": "^1.17.2"
-  },
-  "engines": {
-    "node": "10.0.0"
   }
 }

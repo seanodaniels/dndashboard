@@ -6,14 +6,23 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var router = express.Router();
+require('dotenv').config();
 
 var index = require("./routes/index");
 var spells = require("./routes/spells");
 
 var app = express();
 
-app.listen(3001, () => {
-  console.log("Listening on port 3001.");
+// Combine React client startup with express
+  app.use(express.static(path.join(__dirname, "client/build")));
+
+  // app.get("*", (req, res) => {
+  //     res.sendFile(path.join(__dirname, "client/build/index.html"));
+  // });
+
+// app.listen(3001, () => {
+app.listen(process.env.PORT || 5000, ()=> {
+  console.log("Express server listening on port 5000.");
 });
 
 // view engine setup
