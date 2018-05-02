@@ -13,15 +13,15 @@ var spells = require("./routes/spells");
 var app = express();
 
 // Combine React client startup with express
-  app.use(express.static(path.join(__dirname, "client", "build")))
+  // app.use(express.static(path.join(__dirname, "client/build")));
 
-  app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
+  // app.get("*", (req, res) => {
+  //     res.sendFile(path.join(__dirname, "client/build/index.html"));
+  // });
 
 // app.listen(3001, () => {
-app.listen(process.env.PORT || 3001, ()=> {
-  console.log("Express server listening on port 3001.");
+app.listen(process.env.PORT || 5000, ()=> {
+  console.log("Express server listening on port 5000.");
 });
 
 // view engine setup
