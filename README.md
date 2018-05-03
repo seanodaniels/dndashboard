@@ -71,6 +71,11 @@ npm start
 * [MongoDB](https://www.mongodb.com/)
 * [Mongoose](http://mongoosejs.com/)
 
+## To Do
+
+* Deep linking: each monster / spell needs its own url
+* Format: Need to create a proper theme with proper CSS 
+
 ## Contributing
 
 Not yet. Let me finish this thing first.

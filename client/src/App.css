@@ -100,8 +100,9 @@ ul#nav-secondary {
 .data-list {
   border: 1px solid #000;
   float: left;
+  height: 300px;
   margin-right: 1%;
-  overflow: hidden;
+  overflow: scroll;
   padding: 0.5em;
   width: 300px;
 }

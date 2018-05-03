@@ -50,7 +50,13 @@ class SpellDisplay extends Component {
           ).map((spell, index) => (
             <div id={spell._id} className="oinitial-hide" key={index}>
               <h1>{spell.Title}</h1>
-              <p><strong>{spell._id}</strong><br />{spell.Description}</p>
+              <p><em>Level {spell.Level} {spell.School} {spell.Ritual}</em></p>              
+              <p><strong>Casting Time:</strong> {spell['Casting Time']}<br />
+              <strong>Range:</strong> {spell.Range}<br />
+              <strong>Components:</strong> {spell.Components}<br />
+              <strong>Duration:</strong> {spell.Duration}</p>
+
+              <p>{spell.Description}</p>
             </div>
           ))
         }
