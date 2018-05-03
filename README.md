@@ -40,6 +40,8 @@ npm install
 cd ..
 ```
 
+Download the MongoDB spell data from http://www.odaniels.org/dnd/data.zip and unzip to /data
+
 Run MongoDB. From the root directory:
 
 ```
@@ -49,7 +51,7 @@ mongod -dbpath ./data/db
 Run the Express server. From the root directory:
 
 ```
-npm start
+npm run dev
 ```
 
 Run the React app. From the root directory:
