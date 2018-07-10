@@ -38,7 +38,7 @@ class MonsterDisplayComp extends Component {
               </div> {/* property line */}
               <div className="property-line">
                 <h4>Hit Points</h4>
-                <p>{this.props.singleMonster.hit_points} ({this.props.singleMonster.hit_dice} + ????)</p>
+                <p>{this.props.singleMonster.hit_points} ({this.props.singleMonster.hit_dice} + { (this.props.singleMonster.hit_dice.split("d")[0] * Math.floor((this.props.singleMonster.constitution - 10)/2))})</p>
               </div> {/* property line */}
               <div className="property-line last">
                 <h4>Speed</h4>
@@ -103,7 +103,7 @@ class MonsterDisplayComp extends Component {
               {this.props.singleMonster.challenge_rating &&
                 <div className="property-line last">
                   <h4>Challenge</h4>
-                  <p>{this.props.singleMonster.challenge_rating} ??? xp</p>
+                  <p>{this.props.singleMonster.challenge_rating}</p>
                 </div>
               }
             </div> {/* top stats */}
