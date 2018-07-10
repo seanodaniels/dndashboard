@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import MonsterProp from "./MonsterProp.jsx";
 
 const mapStateToProps = (state) => {
-  return {singleMonster: state.singleMonster, singleMonsterIsFetching: state.singleMonsterIsFetching, singleMonsterFetchingError: state.singleMonsterFetchingError};
+  return { singleMonster: state.singleMonster, singleMonsterIsFetching: state.singleMonsterIsFetching, singleMonsterFetchingError: state.singleMonsterFetchingError };
 };
 
 class MonsterDisplayComp extends Component {
@@ -18,65 +18,130 @@ class MonsterDisplayComp extends Component {
       return <p>Loading…</p>;
     }
 
-    return (<div id="MonsterDisplay">
-      <h1>{this.props.singleMonster.name}</h1>
+    return (
+      <div id="MonsterDisplay">
+      {this.props.singleMonster.name &&
+        <div className="stat-block">
+          <hr className="orange-border" />
+          <div className="section-left">
+            <div className="creature-heading">
+              <h1>{this.props.singleMonster.name}</h1>
+              <h2>{this.props.singleMonster.size} {this.props.singleMonster.type} {this.props.singleMonster.subtype}, {this.props.singleMonster.alignment}</h2>
+            </div> {/* creature heading */}
+            <svg height="5" width="100%" className="tapered-rule">
+              <polyline points="0,0 400,2.5 0,5"></polyline>
+            </svg>
+            <div className="top-stats">
+              <div className="property-line first">
+                <h4>Armor Class</h4>
+                <p>{this.props.singleMonster.armor_class} (natural armor)</p>
+              </div> {/* property line */}
+              <div className="property-line">
+                <h4>Hit Points</h4>
+                <p>{this.props.singleMonster.hit_points} ({this.props.singleMonster.hit_dice} + ????)</p>
+              </div> {/* property line */}
+              <div className="property-line last">
+                <h4>Speed</h4>
+                <p>{this.props.singleMonster.speed}</p>
+              </div> {/* property line */}
+              <svg height="5" width="100%" className="tapered-rule">
+                <polyline points="0,0 400,2.5 0,5"></polyline>
+              </svg>
+              <div className="abilities">
+                <div className="ability-strength">
+                  <h4>STR</h4>
+                  <p>{this.props.singleMonster.strength} <MonsterProp type="abilityBonus" value={this.props.singleMonster.strength} /></p>
+                </div> {/* ability strength */}
+                <div className="ability-dexterity">
+                  <h4>DEX</h4>
+                  <p>{this.props.singleMonster.dexterity} <MonsterProp type="abilityBonus" value={this.props.singleMonster.dexterity} /></p>
+                </div> {/* ability dexterity */}
+                <div className="ability-constitution">
+                  <h4>CON</h4>
+                  <p>{this.props.singleMonster.constitution} <MonsterProp type="abilityBonus" value={this.props.singleMonster.constitution} /></p>
+                </div> {/* ability constitution */}
+                <div className="ability-intelligence">
+                  <h4>INT</h4>
+                  <p>{this.props.singleMonster.intelligence} <MonsterProp type="abilityBonus" value={this.props.singleMonster.intelligence} /></p>
+                </div> {/* ability intelligence */}
+                <div className="ability-wisdom">
+                  <h4>WIS</h4>
+                  <p>{this.props.singleMonster.wisdom} <MonsterProp type="abilityBonus" value={this.props.singleMonster.wisdom} /></p>
+                </div> {/* ability wisdom */}
+                <div className="ability-charisma">
+                  <h4>CHA</h4>
+                  <p>{this.props.singleMonster.charisma} <MonsterProp type="abilityBonus" value={this.props.singleMonster.charisma} /></p>
+                </div> {/* ability charisma */}
+              </div> {/* abilities */}
+              <svg height="5" width="100%" className="tapered-rule">
+                <polyline points="0,0 400,2.5 0,5"></polyline>
+              </svg>
+              {this.props.singleMonster.damage_immunities &&
+                <div className="property-line">
+                  <h4>Damage Immunities</h4>
+                  <p>{this.props.singleMonster.damage_immunities}</p>
+                </div>
+              }
+              {this.props.singleMonster.condition_immunities &&
+                <div className="property-line">
+                  <h4>Condition Immunities</h4>
+                  <p>{this.props.singleMonster.condition_immunities}</p>
+                </div>
+              }
+              {this.props.singleMonster.senses &&
+                <div className="property-line">
+                  <h4>Senses</h4>
+                  <p>{this.props.singleMonster.senses}</p>
+                </div>
+              }
+              {this.props.singleMonster.languages &&
+                <div className="property-line">
+                  <h4>Languages</h4>
+                  <p>{this.props.singleMonster.languages}</p>
+                </div>
+              }
+              {this.props.singleMonster.challenge_rating &&
+                <div className="property-line last">
+                  <h4>Challenge</h4>
+                  <p>{this.props.singleMonster.challenge_rating} ??? xp</p>
+                </div>
+              }
+            </div> {/* top stats */}
+            <svg height="5" width="100%" className="tapered-rule">
+              <polyline points="0,0 400,2.5 0,5"></polyline>
+            </svg>
+            {this.props.singleMonster.special_abilities &&
+              <div>{this.props.singleMonster.special_abilities.map(ability => {
+                return <div className="property-block">
+                  <h4>{ability.name}</h4>
+                  <p>{ability.desc}</p>
+                </div>;
+              })}</div>
+            }
 
-      <p>
-        <MonsterProp propKey="monsterUrl" type="a" linkTarget="_blank" name={this.props.singleMonster.url} value={this.props.singleMonster.url}/>
-      </p>
-
-      <table className="monster-table">
-        <tbody>
-
-        <MonsterProp type="tr" name="Size" value={this.props.singleMonster.size}/>
-        <MonsterProp type="tr" name="Type" value={this.props.singleMonster.type}/>
-        <MonsterProp type="tr" name="Subtype" value={this.props.singleMonster.subtype}/>
-        <MonsterProp type="tr" name="Alignment" value={this.props.singleMonster.alignment}/>
-        <MonsterProp type="tr" name="AC" value={this.props.singleMonster.armor_class}/>
-        <MonsterProp type="tr" name="Hit Points" value={this.props.singleMonster.hit_points}/>
-        <MonsterProp type="tr" name="Hit Dice" value={this.props.singleMonster.hit_dice}/>
-        <MonsterProp type="tr" name="Speed" value={this.props.singleMonster.speed}/>
-        <MonsterProp type="tr" name="Str" value={this.props.singleMonster.strength}/>
-        <MonsterProp type="tr" name="Dex" value={this.props.singleMonster.dexterity}/>
-        <MonsterProp type="tr" name="Con" value={this.props.singleMonster.constitution}/>
-        <MonsterProp type="tr" name="Int" value={this.props.singleMonster.intelligence}/>
-        <MonsterProp type="tr" name="Wis" value={this.props.singleMonster.wisdom}/>
-        <MonsterProp type="tr" name="Cha" value={this.props.singleMonster.charisma}/>
-        <MonsterProp type="tr" name="Str Save" value={this.props.singleMonster.strength_save}/>
-        <MonsterProp type="tr" name="Dex Save" value={this.props.singleMonster.dexterity_save}/>
-        <MonsterProp type="tr" name="Con Save" value={this.props.singleMonster.constitution_save}/>
-        <MonsterProp type="tr" name="Int Save" value={this.props.singleMonster.intelligence_save}/>
-        <MonsterProp type="tr" name="Wis Save" value={this.props.singleMonster.wisdom_save}/>
-        <MonsterProp type="tr" name="Cha Save" value={this.props.singleMonster.charisma_save}/>
-        <MonsterProp type="tr" name="Athletics" value={this.props.singleMonster.athletics}/>
-        <MonsterProp type="tr" name="Acrobatics" value={this.props.singleMonster.acrobatics}/>
-        <MonsterProp type="tr" name="Sleight of Hand" value={this.props.singleMonster.sleight_of_hand}/>
-        <MonsterProp type="tr" name="Stealth" value={this.props.singleMonster.stealth}/>
-        <MonsterProp type="tr" name="initiative" value={this.props.singleMonster.initiative}/>
-        <MonsterProp type="tr" name="Arcana" value={this.props.singleMonster.arcana}/>
-        <MonsterProp type="tr" name="History" value={this.props.singleMonster.history}/>
-        <MonsterProp type="tr" name="Investigation" value={this.props.singleMonster.investigation}/>
-        <MonsterProp type="tr" name="Nature" value={this.props.singleMonster.nature}/>
-        <MonsterProp type="tr" name="Religion" value={this.props.singleMonster.religion}/>
-        <MonsterProp type="tr" name="Animal Handling" value={this.props.singleMonster.animal_handling}/>
-        <MonsterProp type="tr" name="Insight" value={this.props.singleMonster.insight}/>
-        <MonsterProp type="tr" name="Medicine" value={this.props.singleMonster.medicine}/>
-        <MonsterProp type="tr" name="Perception" value={this.props.singleMonster.perception}/>
-        <MonsterProp type="tr" name="Survival" value={this.props.singleMonster.survival}/>
-        <MonsterProp type="tr" name="Deception" value={this.props.singleMonster.deception}/>
-        <MonsterProp type="tr" name="Intimidation" value={this.props.singleMonster.intimidation}/>
-        <MonsterProp type="tr" name="Performance" value={this.props.singleMonster.performance}/>
-        <MonsterProp type="tr" name="Persuasion" value={this.props.singleMonster.persuasion}/>
-        <MonsterProp type="tr" name="Damage Vulnerabilities" value={this.props.singleMonster.damage_vulnerabilities}/>
-        <MonsterProp type="tr" name="Damage Resistances" value={this.props.singleMonster.damage_resistances}/>
-        <MonsterProp type="tr" name="Damage Immunities" value={this.props.singleMonster.damage_immunities}/>
-        <MonsterProp type="tr" name="Condition Immunities" value={this.props.singleMonster.condition_immunities}/>
-        <MonsterProp type="tr" name="Senses" value={this.props.singleMonster.senses}/>
-        <MonsterProp type="tr" name="Languages" value={this.props.singleMonster.languages}/>
-        <MonsterProp type="tr" name="CR" value={this.props.singleMonster.challenge_rating}/>
-      </tbody>
-      </table>
-    </div>);
+          </div> {/* section left */}
+          <div className="section-right">
+            {this.props.singleMonster.actions &&
+              <div className="actions"><h3>Actions</h3>{this.props.singleMonster.actions.map(ability => {
+                return <div className="property-block">
+                  <h4>{ability.name}</h4>
+                  <p>{ability.desc}</p>
+                </div>;
+              })}</div>
+            }
+            {this.props.singleMonster.legendary_actions &&
+              <div className="actions"><h3>Legendary Actions</h3>{this.props.singleMonster.legendary_actions.map(ability => {
+                return <div className="property-block">
+                  <h4>{ability.name}</h4>
+                  <p>{ability.desc}</p>
+                </div>;
+              })}</div>
+            }
+          </div> {/* section right */}
+          <hr className="orange-border bottom" />
+        </div>
+      }
+      </div>);
 
   }
 }

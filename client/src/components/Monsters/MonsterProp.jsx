@@ -46,6 +46,13 @@ class MonsterProp extends Component {
             </tr>
           )
 
+        case "abilityBonus":
+          let abilityValue = this.props.value;
+          let abilitySign = (abilityValue < 0) ? "-" : "+";
+          return (
+            <span className="ability-bonus">({abilitySign}{Math.floor((abilityValue - 10)/2)})</span>
+          )
+
         default:
         return (
           <div className={`monster-${this.state.uniqueKey}`}>
