@@ -14,7 +14,7 @@ var spells = require("./routes/spells");
 var app = express();
 
 // Combine React client startup with express
-  app.use(express.static(path.join(__dirname, "client/build")));
+  router.use(express.static(path.join(__dirname, "client/build")));
 
   // app.get("*", (req, res) => {
   //     res.sendFile(path.join(__dirname, "client/build/index.html"));
@@ -56,11 +56,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
-});
-
-// React Routing fix for Heroku
-app.get('/*', function(req, res) {
-  res.sendFile(index);
 });
 
 module.exports = app;
