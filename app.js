@@ -14,11 +14,9 @@ var spells = require("./routes/spells");
 var app = express();
 
 // Combine React client startup with express
-  router.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(path.join(__dirname, "client/build")));
 
-  // app.get("*", (req, res) => {
-  //     res.sendFile(path.join(__dirname, "client/build/index.html"));
-  // });
+
 
 // app.listen(3001, () => {
 app.listen(process.env.PORT || 5000, ()=> {
@@ -41,10 +39,14 @@ app.use("/", index);
 app.use("/api/spells", spells);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error("Not Found");
-  err.status = 404;
-  next(err);
+// app.use(function(req, res, next) {
+//   var err = new Error("Not Found");
+//   err.status = 404;
+//   next(err);
+// });
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 // error handler
