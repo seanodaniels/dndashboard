@@ -58,4 +58,9 @@ app.use(function(err, req, res, next) {
   res.render("error");
 });
 
+// React Routing fix for Heroku
+app.get('/*', function(req, res) {
+  res.sendFile('./client/build/index.html');
+});
+
 module.exports = app;
