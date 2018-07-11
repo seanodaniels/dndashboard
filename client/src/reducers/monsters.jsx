@@ -17,6 +17,16 @@ export const monstersFetchingError = (state = false, action) => {
   }
 };
 
+export const monstersFetchingDone = (state = false, action) => {
+  switch (action.type) {
+    case 'MONSTERS_FETCHING_DONE':
+      return action.fetchingDone;
+    default:
+      return state;
+  }
+};
+
+
 
 export const monsters = (state = [], action) => {
     switch (action.type) {

@@ -1,6 +1,7 @@
 export const MONSTERS_IS_FETCHING = "MONSTERS_IS_FETCHING";
 export const MONSTERS_FETCHING_ERROR = "MONSTERS_FETCHING_ERROR";
 export const MONSTERS_FETCH_SUCCESS = "MONSTERS_FETCH_SUCCESS";
+export const MONSTERS_FETCHING_DONE = "MONSTERS_FETCHING_DONE";
 export const SINGLE_MONSTER_IS_FETCHING = "SINGLE_MONSTER_IS_FETCHING";
 export const SINGLE_MONSTER_FETCHING_ERROR = "SINGLE_MONSTER_FETCHING_ERROR";
 export const SINGLE_MONSTER_FETCH_SUCCESS = "SINGLE_MONSTER_FETCH_SUCCESS";
@@ -20,6 +21,13 @@ export function monstersFetchingError(bool) {
   return {
     type: "MONSTERS_FETCHING_ERROR",
     fetchingError: bool
+  };
+}
+
+export function monstersFetchingDone(bool) {
+  return {
+    type: "MONSTERS_FETCHING_DONE",
+    fetchingDone: bool
   };
 }
 
@@ -46,7 +54,8 @@ export function monstersFetchData(url) {
       .then(response => response.json())
       .then(monsters => {
         dispatch(monstersFetchSuccess(monsters));
-        console.log(monsters);
+        dispatch(monstersFetchingDone(true));
+        //console.log(monsters);
       })
 
       .catch(() => dispatch(monstersFetchingError(true)));
@@ -125,7 +134,7 @@ export function spellsFetchData(url) {
       })
       .then(res => res.json())
       .then(spells => {
-        console.log(spells);
+        // console.log(spells);
         dispatch(spellsFetchSuccess(spells));
       })
       .catch(() => dispatch(spellsFetchingError(true)));

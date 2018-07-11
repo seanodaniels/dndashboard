@@ -112,7 +112,7 @@ class MonsterDisplayComp extends Component {
             </svg>
             {this.props.singleMonster.special_abilities &&
               <div>{this.props.singleMonster.special_abilities.map(ability => {
-                return <div className="property-block">
+                return <div key={ability.name} className="property-block">
                   <h4>{ability.name}</h4>
                   <p>{ability.desc}</p>
                 </div>;
@@ -123,7 +123,7 @@ class MonsterDisplayComp extends Component {
           <div className="section-right">
             {this.props.singleMonster.actions &&
               <div className="actions"><h3>Actions</h3>{this.props.singleMonster.actions.map(ability => {
-                return <div className="property-block">
+                return <div key={ability.name}  className="property-block">
                   <h4>{ability.name}</h4>
                   <p>{ability.desc}</p>
                 </div>;
@@ -131,7 +131,7 @@ class MonsterDisplayComp extends Component {
             }
             {this.props.singleMonster.legendary_actions &&
               <div className="actions"><h3>Legendary Actions</h3>{this.props.singleMonster.legendary_actions.map(ability => {
-                return <div className="property-block">
+                return <div  key={ability.name} className="property-block">
                   <h4>{ability.name}</h4>
                   <p>{ability.desc}</p>
                 </div>;

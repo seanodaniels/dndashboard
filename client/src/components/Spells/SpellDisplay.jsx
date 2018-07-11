@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import configureStore from '../../store';
+// import configureStore from '../../store';
 import {
   currentSpell,
 } from "../../actions/index.js";
 
-const store = configureStore();
+// const store = configureStore();
 
 const mapStateToProps = state => {
   return {
@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-var _ = require('lodash')
+// var _ = require('lodash')
 
 class SpellDisplay extends Component {
 

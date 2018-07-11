@@ -22,7 +22,7 @@ class MonsterMain extends Component {
     return (
       <div id="Monsters">
         <div className="data-list monsters-list">
-          <MonsterList/>
+          <MonsterList location={this.props.location} match={this.props.match}/>
         </div>
         <div className="data-display monster-display">
           <MonsterDisplay setMonsterUrl={this.state.monsterUrl}/>

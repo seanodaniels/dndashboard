@@ -25,7 +25,7 @@ class MonsterProp extends Component {
       switch (this.props.type) {
 
         case "a":
-          console.log(this.props.linkTarget);
+          // console.log(this.props.linkTarget);
           if (this.props.linkTarget === undefined) {
             return (
               <a className={`monster-${this.state.uniqueKey}`} href={`${this.props.value}`}>

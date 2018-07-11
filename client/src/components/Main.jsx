@@ -50,7 +50,9 @@ class Main extends Component {
 
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route path="/monsters" component={MonsterMain}/>
+            <Route exact path="/monsters/:id" component={MonsterMain}/>
+            <Route exact path="/monsters" component={MonsterMain}/>
+            
             <Route path="/spells" component={SpellsMain}/>
           </Switch>
           {/* <MonsterMain /> */}
