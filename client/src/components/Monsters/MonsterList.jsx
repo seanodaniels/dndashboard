@@ -41,16 +41,16 @@ class MonsterList extends Component {
   componentWillReceiveProps(nextProps) {
     // If we have landed here from a user designated URL,
     // then pull the appropriate monster and display it.
-    // if (this.props.match.path === '/monsters/:id') {
-    //     if (this.props.monsters.length <= 0 && nextProps.monsters.length > 0) {
-    //       let foundMonsterName = nextProps.monsters.find(monster => { return monster.name === this.props.match.params.id});
-    //       if (foundMonsterName) {
-    //         this.props.singleFetchData(foundMonsterName.url);
-    //       } else {
-    //         // 
-    //       }
-    //     }
-    // }
+    if (this.props.match.path === '/monsters/:id') {
+        if (this.props.monsters.length <= 0 && nextProps.monsters.length > 0) {
+          let foundMonsterName = nextProps.monsters.find(monster => { return monster.name === this.props.match.params.id});
+          if (foundMonsterName) {
+            this.props.singleFetchData(foundMonsterName.url);
+          } else {
+            // 
+          }
+        }
+    }
   }
 
   handlerChoose(url) {
