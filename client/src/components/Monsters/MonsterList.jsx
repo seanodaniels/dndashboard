@@ -38,7 +38,7 @@ class MonsterList extends Component {
     this.props.fetchData("http://www.dnd5eapi.co/api/monsters/");
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillUpdate(nextProps) {
     // If we have landed here from a user designated URL,
     // then pull the appropriate monster and display it.
     if (this.props.match.path === '/monsters/:id') {

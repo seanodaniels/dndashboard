@@ -22,7 +22,7 @@ class SpellsMain extends Component {
     return (
       <div id="Spells">
         <div className="data-list spells-list">
-          <SpellsList/>
+          <SpellsList location={this.props.location}  match={this.props.match}/>
         </div>
         <div className="data-display spell-display">
           <SpellDisplay setSpellId='hi'/>

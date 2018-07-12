@@ -2,7 +2,7 @@
 
 A web-based toolset resource for use during D&D games, for players and GMs alike.
 
-A live demo of this app can be found at http://dndash.herokuapp.com/
+A live demo of this app can be found at http://www.dndashboard.net.
 
 ## Getting Started
 
@@ -73,7 +73,6 @@ npm start
 
 ## To Do
 
-* Deep linking: each monster / spell needs its own url
 * Format: Need to create a proper theme with proper CSS 
 
 ## Contributing
