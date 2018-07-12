@@ -87,6 +87,7 @@ ul.nav {
   padding: 1em;
 }
 
+
 ul#nav-primary {
   padding: 0;
 }
@@ -104,8 +105,54 @@ ul#nav-secondary {
   ul#nav-secondary li {}
 
 #content-wrapper {
-  padding: 1em;
+  padding: 1em 1em 7em 1em;
 }
+
+
+footer {
+  background-color: #2e5d2f;
+  bottom: 0;
+  color: #ffffff;
+  font-size: 0.8em;
+  height: 6.5em;
+  left: 0;
+  margin-top: 1em;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+
+@media only screen and (max-width: 512px) {
+  #content-wrapper {
+    padding-bottom: 9em;
+  }
+  
+  footer {
+    height: 8em;
+  }
+}
+
+  footer p {
+    margin: 0.5em;
+  }
+
+  footer p a:link {
+    color: #dcd78e;
+  }
+
+  footer p a:visited {
+    color: #dcd78e;
+  }
+
+  footer p a:hover {
+    color: #ffffff;
+  }
+
+  footer p a:active {
+    color: #ffffff;
+  }
 
 .data-list {
   border: 1px solid #000;
@@ -184,14 +231,27 @@ h4 {
   display: none;
 }
 
+#home {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  grid-gap: 10%;
+}
+
+
+@media only screen and (max-width:550px) {
+  #home {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 10%;
+  }
+}
+
 /* 
    Begin Valloric based Monster Display
    CSS version by Chad Carteret
    https://codepen.io/retractedhack/pen/gPLpWe
   */
 
-
-  
 
   #MonsterDisplay {
     text-align: center;

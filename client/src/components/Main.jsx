@@ -46,7 +46,7 @@ class Main extends Component {
 
         <Nav/>
 
-        <div id="content-wrapper">
+        <div id="content-wrapper" className="clearfix">
 
           <Switch>
             <Route exact path="/" component={Home}/>
@@ -55,9 +55,17 @@ class Main extends Component {
             <Route exact path="/spells/:id" component={SpellsMain}/>
             <Route path="/spells" component={SpellsMain}/>
           </Switch>
-          {/* <MonsterMain /> */}
 
         </div>
+        <footer>
+          <p>DnDashboard source at <a href="https://github.com/seanodaniels/dndashboard" rel="noopener noreferrer" target="_blank">Github</a></p>
+          <p>Monster stats: <a href="http://www.dnd5eapi.co/" rel="noopener noreferrer" target="_blank">http://www.dnd5eapi.co/</a> | Spell data : <a href="https://github.com/thebombzen/grimoire/" rel="noopener noreferrer" target="_blank">thebombzen</a></p>
+          
+          <p>Statblock styles: <a href="https://codepen.io/retractedhack/pen/gPLpWe" rel="noopener noreferrer" target="_blank">Chad Carteret</a> based on <a href="https://valloric.github.io/statblock5e/" rel="noopener noreferrer" target="_blank">Statblock5e</a></p>
+          
+                 
+        </footer>
+
       </div>
     </Router>)
   }
