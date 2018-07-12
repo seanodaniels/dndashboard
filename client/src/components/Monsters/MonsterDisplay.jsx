@@ -100,7 +100,7 @@ class MonsterDisplayComp extends Component {
                   <p>{this.props.singleMonster.languages}</p>
                 </div>
               }
-              {this.props.singleMonster.challenge_rating &&
+              {this.props.singleMonster.challenge_rating >=0 &&
                 <div className="property-line last">
                   <h4>Challenge</h4>
                   <p>{this.props.singleMonster.challenge_rating}</p>
