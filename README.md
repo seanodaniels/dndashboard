@@ -59,7 +59,7 @@ mongod --dbpath ~/data/db
 Run the Express server. From the root directory:
 
 ```
-npm run dev
+npm start
 ```
 
 Run the React app. From the root directory:
