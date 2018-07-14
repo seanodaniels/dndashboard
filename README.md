@@ -40,12 +40,20 @@ npm install
 cd ..
 ```
 
-Download the MongoDB spell data from http://www.odaniels.org/dnd/data.zip and unzip to /data
+Download the MongoDB spell data from http://www.odaniels.org/dnd/dndashboard-spell-data.zip and unzip.
 
-Run MongoDB. From the root directory:
+Import the .csv file into your MongoDB:
 
 ```
-mongod -dbpath ./data/db
+mongoimport -d heroku_p9db9w4j -c spells --type csv --file ./data/spell-list-complete.csv --headerline
+```
+
+Run MongoDB pointing at whatever path you are using. From the root directory:
+
+```
+mongod --dbpath ./data/db
+ -- or --
+mongod --dbpath ~/data/db
 ```
 
 Run the Express server. From the root directory:
