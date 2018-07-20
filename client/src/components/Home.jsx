@@ -14,7 +14,7 @@ class Home extends Component {
       </div>
 
       <div class="home-block">
-        <h2><a href="/monsters">Spells</a></h2>
+        <h2><a href="/spells">Spells</a></h2>
 
         <p>A list of D&amp;D spells. Data provided by <a href="https://github.com/thebombzen/grimoire/" rel="noopener noreferrer" target="_blank">thebombzen</a> and converted into a MongoDB.</p>
 
