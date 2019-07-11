@@ -53,7 +53,7 @@ class Main extends Component {
             <Route exact path="/monsters/:id" component={MonsterMain}/>
             <Route exact path="/monsters" component={MonsterMain}/>
             <Route exact path="/spells/:id" component={SpellsMain}/>
-            <Route path="/spells" component={SpellsMain}/>
+            <Route exact path="/spells" component={SpellsMain}/>
           </Switch>
 
         </div>
